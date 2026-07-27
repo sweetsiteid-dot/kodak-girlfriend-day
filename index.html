@@ -8,12 +8,18 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Girlfriend Day, Deandra ❤️</title>
+    <title>Happy National Girlfriend Day ❤️</title>
+
+    <meta name="theme-color" content="#3c2b22">
+
+    <meta name="description"
+        content="Kodak Memories - National Girlfriend Day">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Google Fonts -->
+
     <link rel="preconnect"
         href="https://fonts.googleapis.com">
 
@@ -21,36 +27,51 @@
         href="https://fonts.gstatic.com"
         crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Caveat:wght@400;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
+
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- ======================================
-LOADER
-======================================= -->
+<!-- ===========================
+PRELOADER
+=========================== -->
 
 <div id="loader">
 
-    <div class="film-loader">
+    <div class="loader-content">
 
-        <div class="film-roll"></div>
+        <div class="film-roll">
 
-        <p>Developing Memories...</p>
+            <span></span>
+
+        </div>
+
+        <h2>
+
+            Developing Memories...
+
+        </h2>
+
+        <p>
+
+            Please wait...
+
+        </p>
 
     </div>
 
 </div>
 
-<!-- ======================================
-FILM GRAIN
-======================================= -->
+<!-- ===========================
+BACKGROUND EFFECT
+=========================== -->
 
 <div class="grain"></div>
 
@@ -58,213 +79,307 @@ FILM GRAIN
 
 <div class="light-leak"></div>
 
-<!-- ======================================
-MUSIC
-======================================= -->
+<!-- ===========================
+AUDIO
+=========================== -->
 
-<audio id="bgMusic" loop>
+<audio
+id="bgMusic"
+loop>
 
-    <source
-        src="assets/music/shapeofmyheart.mp3"
-        type="audio/mpeg">
+<source
+src="assets/music/shapeofmyheart.mp3"
+type="audio/mpeg">
 
 </audio>
 
-<!-- ======================================
+<!-- ===========================
 INTRO
-======================================= -->
+=========================== -->
 
-<section id="intro">
+<section
+id="intro">
 
-    <div class="intro-content">
+<div class="intro-overlay"></div>
 
-        <span class="intro-date">
+<div class="intro-content">
 
-            National Girlfriend Day
+<div class="intro-camera">
 
-        </span>
-
-        <h1>
-
-            Happy Girlfriend Day,
-            <br>
-
-            <span>Sayangg ❤️</span>
-
-        </h1>
-
-        <p>
-
-            Every picture tells a story,
-            and every story begins with you.
-
-        </p>
-
-        <button id="openMemory">
-
-            <i class="fa-solid fa-camera-retro"></i>
-
-            Open Memories
-
-        </button>
-
-    </div>
-
-</section>
-
-<!-- ======================================
-FLASH
-======================================= -->
-
-<div id="cameraFlash"></div>
-
-<!-- ======================================
-HERO
-======================================= -->
-
-<header id="hero">
-
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-
-<div class="badge">
-
-📷 Kodak Collection
+<i class="fa-solid fa-camera-retro"></i>
 
 </div>
 
-<h1>
+<h3>
 
 Kodak Memories
 
+</h3>
+
+<h1>
+
+Happy National
+
+<br>
+
+Girlfriend Day
+
 </h1>
-
-<h2>
-
-A Collection of My Favorite Moments
-With My Favorite Person.
-
-</h2>
 
 <p>
 
-For
+Every picture holds
 
-<strong>Deandra</strong>
-
-From
-
-<strong>Akbar</strong>
+a piece of my heart.
 
 </p>
 
-<div class="hero-date">
+<button
+id="startButton">
 
-<i class="fa-regular fa-calendar"></i>
+<i class="fa-solid fa-camera"></i>
 
-1 August 2026
-
-</div>
-
-<button class="scroll-btn">
-
-Scroll To Begin
-
-<i class="fa-solid fa-arrow-down"></i>
+Open Our Story
 
 </button>
 
 </div>
 
-</header>
+</section>
 
-<!-- ======================================
-FILM STRIP
-======================================= -->
+<!-- ===========================
+FLASH
+=========================== -->
 
-<section id="filmStrip">
+<div id="flash"></div>
 
-<div class="section-title">
+<!-- ===========================
+HERO
+=========================== -->
 
-<span>Our Memories</span>
+<header
+id="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-content">
+
+<span class="hero-tag">
+
+📷 Premium Kodak Collection
+
+</span>
+
+<h1>
+
+Deandra
+
+</h1>
 
 <h2>
 
-Every Frame Has A Story
+For My Beautiful
+
+Sayangg ❤️
 
 </h2>
 
-</div>
-
-<div class="film-container">
-
-<div class="film-frame">
-
-<img
-src="assets/photos/photo1.jpg"
-alt="photo1">
-
-<div class="caption">
+<p>
 
 03 March 2026
 
-</div>
+—
+
+01 August 2026
+
+</p>
+
+<div class="hero-buttons">
+
+<button
+class="scrollStory">
+
+Our Story
+
+</button>
+
+<button
+class="scrollLetter">
+
+Read Letter
+
+</button>
 
 </div>
 
-<div class="film-frame">
+</div>
+
+<div class="scroll-indicator">
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</div>
+
+</header>
+
+<!-- ===========================
+FILM STRIP
+=========================== -->
+
+<section
+id="story">
+
+<div class="section-heading">
+
+<span>
+
+Film Collection
+
+</span>
+
+<h2>
+
+Our Story
+
+</h2>
+
+<p>
+
+Some moments deserve
+
+to stay forever.
+
+</p>
+
+</div>
+
+<div class="film-strip">
+
+<div class="film-card">
+
+<img
+src="assets/photos/photo1.jpg"
+alt="">
+
+<div class="film-info">
+
+<h4>
+
+03 March 2026
+
+</h4>
+
+<p>
+
+The day
+
+everything started.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="film-card">
 
 <img
 src="assets/photos/photo2.jpg"
-alt="photo2">
+alt="">
 
-<div class="caption">
+<div class="film-info">
 
-A New Chapter Begins
+<h4>
+
+Favorite Smile
+
+</h4>
+
+<p>
+
+A smile I'll
+
+never forget.
+
+</p>
 
 </div>
 
 </div>
 
-<div class="film-frame">
+<div class="film-card">
 
 <img
 src="assets/photos/photo3.jpg"
-alt="photo3">
+alt="">
 
-<div class="caption">
+<div class="film-info">
 
-One Smile.
-One Memory.
+<h4>
+
+Favorite Person
+
+</h4>
+
+<p>
+
+You became
+
+my home.
+
+</p>
 
 </div>
 
 </div>
 
-<div class="film-frame">
+<div class="film-card">
 
 <img
 src="assets/photos/photo4.jpg"
-alt="photo4">
+alt="">
 
-<div class="caption">
+<div class="film-info">
 
-Moments Worth Keeping.
+<h4>
+
+Our Moment
+
+</h4>
+
+<p>
+
+One picture,
+
+a thousand feelings.
+
+</p>
 
 </div>
 
 </div>
 
-<div class="film-frame">
+<div class="film-card">
 
 <img
 src="assets/photos/photo5.jpg"
-alt="photo5">
+alt="">
 
-<div class="caption">
+<div class="film-info">
 
-Forever Favorite.
+<h4>
+
+Still My Favorite
+
+</h4>
+
+<p>
+
+Always.
+
+Forever.
+
+</p>
 
 </div>
 
@@ -272,41 +387,43 @@ Forever Favorite.
 
 </div>
 
-                                 </section>
+</section>
 
-  <!-- ======================================
+    <!-- ===========================
 LOVE LETTER
-======================================= -->
+=========================== -->
 
 <section id="letter">
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>A Letter</span>
+        <span>Love Letter</span>
 
-        <h2>To My Favorite Girl</h2>
+        <h2>A Letter For You</h2>
+
+        <p>Open the envelope to read my heart.</p>
 
     </div>
 
-    <div class="envelope">
+    <div class="letter-wrapper">
 
-        <div class="envelope-front">
+        <div class="envelope" id="envelope">
 
-            <i class="fa-solid fa-envelope"></i>
+            <div class="envelope-cover">
 
-            <p>Click To Open</p>
+                <i class="fa-solid fa-envelope-open-text"></i>
 
-        </div>
+                <h4>Click To Open</h4>
 
-        <div class="letter-paper">
+            </div>
 
-            <h3>My Dearest Sayangg,</h3>
+            <div class="letter-paper">
 
-            <p id="letterText">
+                <span>To My Dearest,</span>
 
-                <!-- Surat akan ditampilkan melalui JavaScript -->
+                <div id="typingLetter"></div>
 
-            </p>
+            </div>
 
         </div>
 
@@ -314,45 +431,37 @@ LOVE LETTER
 
 </section>
 
-<!-- ======================================
-CAMERA
-======================================= -->
+<!-- ===========================
+VINTAGE CAMERA
+=========================== -->
 
-<section id="cameraSection">
+<section id="camera">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Vintage Camera</span>
 
-        <h2>Take One More Memory</h2>
+        <h2>Capture One More Memory</h2>
 
     </div>
 
-    <div class="camera-box">
+    <div class="camera-wrapper">
 
-        <div id="cameraBody">
+        <div class="camera-body" id="cameraButton">
 
             <i class="fa-solid fa-camera-retro"></i>
 
         </div>
 
-        <button id="takePhoto">
+        <p>Tap the camera</p>
 
-            Take Picture
+        <div class="polaroid" id="polaroid">
 
-        </button>
+            <img src="assets/photos/photo6.jpg" alt="">
 
-        <div id="polaroid">
+            <h4>Captured With Love</h4>
 
-            <img
-                src="assets/photos/photo6.jpg"
-                alt="Polaroid">
-
-            <span>
-
-                A Memory That Will Never Fade.
-
-            </span>
+            <span>Every memory with you is priceless.</span>
 
         </div>
 
@@ -360,13 +469,13 @@ CAMERA
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 REASONS
-======================================= -->
+=========================== -->
 
 <section id="reasons">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Reasons</span>
 
@@ -374,95 +483,75 @@ REASONS
 
     </div>
 
-    <div class="reason-card">
+    <div class="reason-box">
 
-        <button id="reasonBtn">
+        <div class="reason-icon">
 
-            <i class="fa-solid fa-heart"></i>
+            ❤️
+
+        </div>
+
+        <p id="reasonText">
+
+            Press the button below.
+
+        </p>
+
+        <button id="reasonButton">
 
             Reveal
 
         </button>
 
-        <p id="reasonText">
-
-            Click the button ❤️
-
-        </p>
-
     </div>
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 SCRAPBOOK
-======================================= -->
+=========================== -->
 
 <section id="scrapbook">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Scrapbook</span>
 
-        <h2>Little Pieces Of Happiness</h2>
+        <h2>Little Pieces Of Us</h2>
 
     </div>
 
     <div class="scrapbook-grid">
 
-        <div class="scrap-item">
+        <div class="scrap-card">
 
-            <img
-                src="assets/photos/photo7.jpg"
-                alt="">
+            <img src="assets/photos/photo7.jpg" alt="">
 
-            <span>
-
-                Favorite Smile
-
-            </span>
+            <span>Favorite Day</span>
 
         </div>
 
-        <div class="scrap-item">
+        <div class="scrap-card">
 
-            <img
-                src="assets/photos/photo8.jpg"
-                alt="">
+            <img src="assets/photos/photo8.jpg" alt="">
 
-            <span>
-
-                Coffee Date
-
-            </span>
+            <span>Beautiful Smile</span>
 
         </div>
 
-        <div class="scrap-item">
+        <div class="scrap-card">
 
-            <img
-                src="assets/photos/photo9.jpg"
-                alt="">
+            <img src="assets/photos/photo9.jpg" alt="">
 
-            <span>
-
-                My Safe Place
-
-            </span>
+            <span>Forever Mine</span>
 
         </div>
 
-        <div class="scrap-item">
+        <div class="scrap-card">
 
-            <img
-                src="assets/photos/photo10.jpg"
-                alt="">
+            <img src="assets/photos/photo10.jpg" alt="">
 
-            <span>
-
-                Our Happiness
-
-            </span>
+            <span>Sweet Memory</span>
 
         </div>
 
@@ -470,17 +559,17 @@ SCRAPBOOK
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 TIMELINE
-======================================= -->
+=========================== -->
 
 <section id="timeline">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Journey</span>
 
-        <h2>Our Story</h2>
+        <h2>Our Timeline</h2>
 
     </div>
 
@@ -488,18 +577,16 @@ TIMELINE
 
         <div class="timeline-item">
 
-            <div class="dot"></div>
+            <div class="timeline-dot"></div>
 
-            <div class="content">
+            <div class="timeline-content">
 
-                <h3>The First Hello</h3>
+                <h3>First Meet</h3>
 
                 <small>03 March 2026</small>
 
                 <p>
-
-                    Every beautiful story starts with a simple hello.
-
+                    Everything began with one simple meeting.
                 </p>
 
             </div>
@@ -508,18 +595,16 @@ TIMELINE
 
         <div class="timeline-item">
 
-            <div class="dot"></div>
+            <div class="timeline-dot"></div>
 
-            <div class="content">
+            <div class="timeline-content">
 
-                <h3>Getting Closer</h3>
+                <h3>Closer Every Day</h3>
 
-                <small>A New Beginning</small>
+                <small>March 2026</small>
 
                 <p>
-
-                    Day by day, you slowly became my favorite person.
-
+                    Every conversation made me fall a little more.
                 </p>
 
             </div>
@@ -528,18 +613,16 @@ TIMELINE
 
         <div class="timeline-item">
 
-            <div class="dot"></div>
+            <div class="timeline-dot"></div>
 
-            <div class="content">
+            <div class="timeline-content">
 
                 <h3>Countless Memories</h3>
 
-                <small>Our Journey</small>
+                <small>2026</small>
 
                 <p>
-
-                    Every laugh, every photo, every little moment became unforgettable.
-
+                    Photos may fade, but these memories never will.
                 </p>
 
             </div>
@@ -548,18 +631,16 @@ TIMELINE
 
         <div class="timeline-item">
 
-            <div class="dot"></div>
+            <div class="timeline-dot"></div>
 
-            <div class="content">
+            <div class="timeline-content">
 
-                <h3>Today</h3>
+                <h3>National Girlfriend Day</h3>
 
                 <small>01 August 2026</small>
 
                 <p>
-
-                    Happy National Girlfriend Day, my favorite girl.
-
+                    A small website filled with all my love for you.
                 </p>
 
             </div>
@@ -570,66 +651,109 @@ TIMELINE
 
 </section>
 
-  <!-- ======================================
+    <!-- ===========================
 VHS MEMORIES
-====================================== -->
+=========================== -->
 
-<section id="vhsSection">
+<section id="vhs">
 
-    <div class="section-title">
+    <div class="section-heading">
 
-        <span>VHS Tape</span>
+        <span>VHS Memories</span>
 
-        <h2>Replay Our Memories</h2>
+        <h2>Replay Our Moments</h2>
+
+        <p>Some memories are worth replaying forever.</p>
 
     </div>
 
     <div class="vhs-player">
 
+        <div class="vhs-header">
+
+            <span class="rec">● REC</span>
+
+            <span>PLAY</span>
+
+            <span>SP</span>
+
+            <span id="vhsTime">00:00:01</span>
+
+        </div>
+
         <div class="vhs-screen">
 
-            <div class="vhs-overlay">
+            <img src="assets/photos/photo11.jpg" alt="">
 
-                <span class="rec">● REC</span>
+            <div class="scanline"></div>
 
-                <span>PLAY</span>
-
-                <span>SP</span>
-
-            </div>
-
-            <img src="assets/photos/photo11.jpg" alt="Memory">
+            <div class="noise"></div>
 
         </div>
 
     </div>
 
-    <div class="vhs-gallery">
+</section>
 
-        <img src="assets/photos/photo12.jpg" alt="">
-        <img src="assets/photos/photo13.jpg" alt="">
-        <img src="assets/photos/photo14.jpg" alt="">
-        <img src="assets/photos/photo15.jpg" alt="">
+<!-- ===========================
+MEMORY WALL
+=========================== -->
+
+<section id="memoryWall">
+
+    <div class="section-heading">
+
+        <span>Memory Wall</span>
+
+        <h2>Our Favorite Moments</h2>
+
+    </div>
+
+    <div class="wall-grid">
+
+        <div class="wall-photo">
+
+            <img src="assets/photos/photo12.jpg" alt="">
+
+        </div>
+
+        <div class="wall-photo">
+
+            <img src="assets/photos/photo13.jpg" alt="">
+
+        </div>
+
+        <div class="wall-photo">
+
+            <img src="assets/photos/photo14.jpg" alt="">
+
+        </div>
+
+        <div class="wall-photo">
+
+            <img src="assets/photos/photo15.jpg" alt="">
+
+        </div>
 
     </div>
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 QUOTES
-====================================== -->
+=========================== -->
 
 <section id="quotes">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Little Words</span>
 
-        <h2>For You</h2>
+        <h2>Just For You</h2>
 
     </div>
 
-    <div class="quote-box">
+    <div class="quote-card">
 
         <i class="fa-solid fa-quote-left"></i>
 
@@ -643,13 +767,13 @@ QUOTES
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 SECRET MEMORY
-====================================== -->
+=========================== -->
 
-<section id="secretMemory">
+<section id="secret">
 
-    <div class="section-title">
+    <div class="section-heading">
 
         <span>Hidden Memory</span>
 
@@ -657,15 +781,15 @@ SECRET MEMORY
 
     </div>
 
-    <button id="unlockSecret">
+    <button id="secretButton">
 
-        🔒 Unlock Secret
+        Unlock Secret ❤️
 
     </button>
 
     <div id="secretContent">
 
-        <img src="assets/photos/photo15.jpg" alt="Secret">
+        <img src="assets/photos/photo15.jpg" alt="">
 
         <h3>
 
@@ -675,8 +799,7 @@ SECRET MEMORY
 
         <p>
 
-            Out of every memory I've ever had,
-            you're still my favorite one.
+            Thank you for becoming the most beautiful chapter in my life.
 
         </p>
 
@@ -684,9 +807,9 @@ SECRET MEMORY
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 ENDING
-====================================== -->
+=========================== -->
 
 <section id="ending">
 
@@ -696,80 +819,87 @@ ENDING
 
         <span>
 
-            📷 End Of Roll
+            📷 END OF ROLL
 
         </span>
 
         <h1>
 
             Happy National
+
             <br>
+
             Girlfriend Day ❤️
 
         </h1>
 
         <p>
 
-            The film may end,
-            <br>
-            but our memories never will.
+            Thank you for every smile,
+            every laugh,
+            every memory,
+            and every little moment.
+
+            <br><br>
+
+            I love you,
+            today,
+            tomorrow,
+            and forever.
 
         </p>
 
-        <img src="assets/photos/photo1.jpg"
-            class="ending-photo"
-            alt="Ending">
+        <img
+
+        src="assets/photos/photo1.jpg"
+
+        alt="Ending Photo"
+
+        class="ending-photo">
 
     </div>
 
 </section>
 
-<!-- ======================================
+<!-- ===========================
 FOOTER
-====================================== -->
+=========================== -->
 
 <footer>
 
-    <div class="footer-content">
+    <h2>
 
-        <h3>
+        Kodak Memories
 
-            Kodak Memories
+    </h2>
 
-        </h3>
+    <p>
 
-        <p>
+        Made with 🤎 by Akbar
 
-            Made with 🤎 by Akbar
-            <br>
+    </p>
 
-            For Deandra
+    <span>
 
-        </p>
+        For Deandra • 01 August 2026
 
-        <small>
-
-            National Girlfriend Day • 1 August 2026
-
-        </small>
-
-    </div>
+    </span>
 
 </footer>
 
-<!-- ======================================
+<!-- ===========================
 BACK TO TOP
-====================================== -->
+=========================== -->
 
-<button id="backToTop">
+<button id="backTop">
 
     <i class="fa-solid fa-arrow-up"></i>
 
 </button>
 
-<!-- ======================================
+<!-- ===========================
 SCRIPT
-====================================== -->
+=========================== -->
 
 <script src="script.js"></script>
 
