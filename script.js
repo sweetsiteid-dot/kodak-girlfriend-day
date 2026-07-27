@@ -4,12 +4,13 @@ LOADER
 
 window.addEventListener("load", () => {
 
+    const loader = document.getElementById("loader");
+
     setTimeout(() => {
 
-        const loader = document.getElementById("loader");
-
         loader.style.opacity = "0";
-        loader.style.transition = "0.8s";
+
+        loader.style.pointerEvents = "none";
 
         setTimeout(() => {
 
@@ -17,7 +18,7 @@ window.addEventListener("load", () => {
 
         }, 800);
 
-    }, 1800);
+    }, 2500);
 
 });
 
@@ -25,222 +26,315 @@ window.addEventListener("load", () => {
 ELEMENT
 ===================================================== */
 
-const intro = document.getElementById("intro");
+const music = document.getElementById("music");
+
+const flash = document.getElementById("flash");
+
+const startStory = document.getElementById("startStory");
 
 const hero = document.getElementById("hero");
 
-const openMemory = document.getElementById("openMemory");
+const storyBtn = document.getElementById("storyBtn");
 
-const flash = document.getElementById("cameraFlash");
-
-const music = document.getElementById("bgMusic");
-
-const scrollBtn = document.querySelector(".scroll-btn");
+const letterBtn = document.getElementById("letterBtn");
 
 /* =====================================================
-OPEN MEMORY
+FLASH EFFECT
 ===================================================== */
 
-openMemory.addEventListener("click", () => {
+function cameraFlash(){
 
     flash.style.opacity = "1";
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         flash.style.opacity = "0";
 
-    }, 180);
+    },180);
 
-    music.play().catch(() => {});
+}
 
-    setTimeout(() => {
+/* =====================================================
+START STORY
+===================================================== */
+
+startStory.addEventListener("click",()=>{
+
+    cameraFlash();
+
+    music.play().catch(()=>{});
+
+    setTimeout(()=>{
 
         hero.scrollIntoView({
 
-            behavior: "smooth"
+            behavior:"smooth"
 
         });
 
-    }, 250);
+    },300);
 
 });
 
 /* =====================================================
-SCROLL BUTTON
+HERO BUTTON
 ===================================================== */
 
-scrollBtn.addEventListener("click", () => {
+storyBtn.addEventListener("click",()=>{
 
-    document.getElementById("filmStrip").scrollIntoView({
+    document.getElementById("filmRoll").scrollIntoView({
 
-        behavior: "smooth"
+        behavior:"smooth"
+
+    });
+
+});
+
+letterBtn.addEventListener("click",()=>{
+
+    document.getElementById("loveLetter").scrollIntoView({
+
+        behavior:"smooth"
 
     });
 
 });
 
 /* =====================================================
-LETTER
+LOVE LETTER
 ===================================================== */
 
-const envelope = document.querySelector(".envelope-front");
+const envelope = document.getElementById("openEnvelope");
 
-const letter = document.querySelector(".letter-paper");
+const paper = document.querySelector(".letter-paper");
 
-const letterText = document.getElementById("letterText");
+const envelopeFront = document.querySelector(".envelope-front");
 
-const message = `Happy National Girlfriend Day, Sayangg.
+const letterContent = document.getElementById("letterContent");
 
-Terima kasih karena sudah hadir dan menjadi bagian paling indah dalam hidupku.
+const letterText = `Happy National Girlfriend Day, Sayangg.
 
-Setiap hari bersamamu selalu terasa spesial, bahkan hal-hal sederhana pun berubah menjadi kenangan yang ingin selalu kuingat.
+Terima kasih karena sudah hadir dan menjadi alasan banyak senyum di hidupku.
 
-Aku bersyukur bisa mengenalmu sejak 3 Maret 2026, karena sejak hari itu hidupku menjadi lebih berwarna.
+Semoga setiap foto yang ada di website ini bisa menjadi pengingat bahwa setiap momen bersamamu selalu berarti.
 
-Semoga kita bisa terus membuat cerita baru, mengumpulkan lebih banyak foto, lebih banyak tawa, dan lebih banyak kenangan yang suatu hari nanti akan kita lihat kembali sambil tersenyum.
+Aku akan terus menjaga semua kenangan kita, sekecil apa pun itu.
 
-Aku mungkin bukan orang yang sempurna, tapi aku akan selalu berusaha menjadi seseorang yang bisa membuatmu merasa dicintai setiap hari.
+I love you today, tomorrow, and forever. ❤️`;
 
-Happy Girlfriend Day, Sayangg.
+let indexLetter = 0;
 
-I love you, today, tomorrow, and always. 🤎`;
+envelope.addEventListener("click",()=>{
 
-let typingIndex = 0;
+    envelopeFront.style.display = "none";
 
-envelope.addEventListener("click", () => {
-
-    envelope.style.display = "none";
-
-    letter.style.display = "block";
+    paper.style.display = "block";
 
     typeLetter();
 
 });
 
-function typeLetter() {
+function typeLetter(){
 
-    if (typingIndex < message.length) {
+    if(indexLetter < letterText.length){
 
-        letterText.innerHTML += message.charAt(typingIndex);
+        letterContent.innerHTML += letterText.charAt(indexLetter);
 
-        typingIndex++;
+        indexLetter++;
 
-        setTimeout(typeLetter, 25);
+        setTimeout(typeLetter,28);
 
     }
 
 }
 
 /* =====================================================
-REASONS I LOVE YOU
+CAMERA DEVELOP
 ===================================================== */
 
-const reasons = [
-
-    "I love your beautiful smile.",
-
-    "I love the way you make me feel safe.",
-
-    "I love your kindness.",
-
-    "I love your laugh.",
-
-    "I love every little thing about you.",
-
-    "I love spending time with you.",
-
-    "I love how you understand me.",
-
-    "I simply love you."
-
-];
-
-const reasonBtn = document.getElementById("reasonBtn");
-
-const reasonText = document.getElementById("reasonText");
-
-reasonBtn.addEventListener("click", () => {
-
-    const random = Math.floor(Math.random() * reasons.length);
-
-    reasonText.textContent = reasons[random];
-
-});
-
-/* =====================================================
-CAMERA POLAROID
-===================================================== */
-
-const takePhoto = document.getElementById("takePhoto");
+const developBtn = document.getElementById("developBtn");
 
 const polaroid = document.getElementById("polaroid");
 
-takePhoto.addEventListener("click", () => {
+const photo = document.querySelector(".polaroid-photo img");
 
-    flash.style.opacity = "1";
+developBtn.addEventListener("click",()=>{
 
-    setTimeout(() => {
-
-        flash.style.opacity = "0";
-
-    }, 150);
+    cameraFlash();
 
     polaroid.style.display = "block";
 
-    polaroid.animate([
+    photo.style.filter = "grayscale(100%) brightness(2)";
 
-        {
+    photo.style.transition = "2.5s";
 
-            transform: "translateY(-80px)",
-            opacity: 0
+    setTimeout(()=>{
 
-        },
+        photo.style.filter = "grayscale(0) brightness(1)";
 
-        {
-
-            transform: "translateY(0)",
-            opacity: 1
-
-        }
-
-    ], {
-
-        duration: 700,
-        fill: "forwards"
-
-    });
+    },400);
 
 });
 
 /* =====================================================
-QUOTES
+REASONS
 ===================================================== */
 
-const quotes = [
+const reasons=[
 
-    "Every picture reminds me why I choose you every single day.",
+"I love your smile.",
 
-    "You are my favorite memory.",
+"I love your kindness.",
 
-    "Home is wherever you are.",
+"I love your patience.",
 
-    "Every love story is beautiful, but ours is my favorite.",
+"I love your beautiful eyes.",
 
-    "You make ordinary days feel extraordinary.",
+"I love every little thing you do.",
 
-    "Loving you is my favorite adventure.",
+"I love your warm heart.",
 
-    "Thank you for becoming my happiest place.",
+"I love making memories with you.",
 
-    "Forever isn't enough with you."
+"I simply love you."
 
 ];
 
+const nextReason=document.getElementById("nextReason");
+
+const reasonText=document.getElementById("reasonText");
+
+let reasonIndex=0;
+
+nextReason.addEventListener("click",()=>{
+
+    reasonText.style.opacity="0";
+
+    setTimeout(()=>{
+
+        reasonText.innerHTML=reasons[reasonIndex];
+
+        reasonText.style.opacity="1";
+
+        reasonIndex++;
+
+        if(reasonIndex>=reasons.length){
+
+            reasonIndex=0;
+
+        }
+
+    },250);
+
+});
+
+/* =====================================================
+SCRAPBOOK
+===================================================== */
+
+const pages = document.querySelectorAll(".scrap-page");
+
+const nextPage = document.getElementById("nextPage");
+
+const prevPage = document.getElementById("prevPage");
+
+let currentPage = 0;
+
+function showPage(index){
+
+    pages.forEach(page=>{
+
+        page.classList.remove("active");
+
+    });
+
+    pages[index].classList.add("active");
+
+}
+
+nextPage.addEventListener("click",()=>{
+
+    currentPage++;
+
+    if(currentPage >= pages.length){
+
+        currentPage = 0;
+
+    }
+
+    showPage(currentPage);
+
+});
+
+prevPage.addEventListener("click",()=>{
+
+    currentPage--;
+
+    if(currentPage < 0){
+
+        currentPage = pages.length - 1;
+
+    }
+
+    showPage(currentPage);
+
+});
+
+showPage(currentPage);
+
+/* =====================================================
+VHS TIMER
+===================================================== */
+
+const vhsTimer = document.getElementById("vhsTimer");
+
+let second = 1;
+
+function updateTimer(){
+
+    const h = String(Math.floor(second / 3600)).padStart(2,"0");
+
+    const m = String(Math.floor((second % 3600) / 60)).padStart(2,"0");
+
+    const s = String(second % 60).padStart(2,"0");
+
+    vhsTimer.innerHTML = `${h}:${m}:${s}`;
+
+    second++;
+
+}
+
+setInterval(updateTimer,1000);
+
+/* =====================================================
+QUOTE SLIDER
+===================================================== */
+
 const quoteText = document.getElementById("quoteText");
+
+const quotes = [
+
+"Every picture reminds me why I love you.",
+
+"You are my favorite chapter.",
+
+"Love is found in every little memory.",
+
+"You'll always be my safest place.",
+
+"Thank you for choosing me every day.",
+
+"Forever starts with you.",
+
+"I'll always keep our memories alive.",
+
+"You are my happiest coincidence."
+
+];
 
 let quoteIndex = 0;
 
-function changeQuote(){
+setInterval(()=>{
 
     quoteText.style.opacity = "0";
 
@@ -254,55 +348,91 @@ function changeQuote(){
 
         }
 
-        quoteText.textContent = quotes[quoteIndex];
+        quoteText.innerHTML = quotes[quoteIndex];
 
         quoteText.style.opacity = "1";
 
     },300);
 
-}
-
-setInterval(changeQuote,5000);
+},5000);
 
 /* =====================================================
-SECRET MEMORY
+FILM CARD ANIMATION
 ===================================================== */
 
-const unlockSecret = document.getElementById("unlockSecret");
+const filmCards = document.querySelectorAll(".film-card");
 
-const secretContent = document.getElementById("secretContent");
+const filmObserver = new IntersectionObserver((entries)=>{
 
-unlockSecret.addEventListener("click",()=>{
+    entries.forEach(entry=>{
 
-    secretContent.style.display = "block";
+        if(entry.isIntersecting){
 
-    unlockSecret.style.display = "none";
+            entry.target.style.opacity = "1";
 
-    secretContent.animate([
-
-        {
-
-            opacity:0,
-
-            transform:"translateY(60px)"
-
-        },
-
-        {
-
-            opacity:1,
-
-            transform:"translateY(0)"
+            entry.target.style.transform = "translateY(0)";
 
         }
 
-    ],{
+    });
 
-        duration:800,
+},{
 
-        fill:"forwards"
+    threshold:0.2
+
+});
+
+filmCards.forEach(card=>{
+
+    card.style.opacity = "0";
+
+    card.style.transform = "translateY(60px)";
+
+    card.style.transition = ".8s";
+
+    filmObserver.observe(card);
+
+});
+
+/* =====================================================
+SECTION FADE
+===================================================== */
+
+const sections = document.querySelectorAll("section");
+
+const sectionObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = "1";
+
+            entry.target.style.transform = "translateY(0)";
+
+        }
 
     });
+
+},{
+
+    threshold:0.15
+
+});
+
+sections.forEach(section=>{
+
+    if(section.id !== "intro"){
+
+        section.style.opacity = "0";
+
+        section.style.transform = "translateY(70px)";
+
+        section.style.transition = "1s";
+
+        sectionObserver.observe(section);
+
+    }
 
 });
 
@@ -310,25 +440,27 @@ unlockSecret.addEventListener("click",()=>{
 BACK TO TOP
 ===================================================== */
 
-const backToTop = document.getElementById("backToTop");
+const backTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY > 600){
+    if(window.scrollY > 500){
 
-        backToTop.style.display = "block";
+        backTop.style.display = "flex";
 
-    }
+        backTop.style.alignItems = "center";
 
-    else{
+        backTop.style.justifyContent = "center";
 
-        backToTop.style.display = "none";
+    }else{
+
+        backTop.style.display = "none";
 
     }
 
 });
 
-backToTop.addEventListener("click",()=>{
+backTop.addEventListener("click",()=>{
 
     window.scrollTo({
 
@@ -341,370 +473,227 @@ backToTop.addEventListener("click",()=>{
 });
 
 /* =====================================================
-FADE IN ANIMATION
+SECRET MEMORY
 ===================================================== */
 
-const observer = new IntersectionObserver((entries)=>{
+const unlockSecret = document.getElementById("unlockSecret");
+
+const secretBox = document.getElementById("secretBox");
+
+let secretOpened = false;
+
+unlockSecret.addEventListener("click",()=>{
+
+    if(secretOpened) return;
+
+    secretOpened = true;
+
+    cameraFlash();
+
+    secretBox.style.display = "block";
+
+    secretBox.style.opacity = "0";
+
+    secretBox.style.transform = "translateY(40px)";
+
+    secretBox.style.transition = ".8s";
+
+    setTimeout(()=>{
+
+        secretBox.style.opacity = "1";
+
+        secretBox.style.transform = "translateY(0)";
+
+    },100);
+
+});
+
+/* =====================================================
+VHS SLIDESHOW
+===================================================== */
+
+const vhsImage = document.getElementById("vhsImage");
+
+const vhsPhotos = [
+
+    "assets/photos/photo11.jpg",
+
+    "assets/photos/photo12.jpg",
+
+    "assets/photos/photo13.jpg",
+
+    "assets/photos/photo14.jpg",
+
+    "assets/photos/photo15.jpg"
+
+];
+
+let vhsIndex = 0;
+
+setInterval(()=>{
+
+    vhsImage.style.opacity = ".15";
+
+    setTimeout(()=>{
+
+        vhsIndex++;
+
+        if(vhsIndex >= vhsPhotos.length){
+
+            vhsIndex = 0;
+
+        }
+
+        vhsImage.src = vhsPhotos[vhsIndex];
+
+        vhsImage.style.opacity = "1";
+
+    },250);
+
+},4000);
+
+/* =====================================================
+PARALLAX LIGHT LEAK
+===================================================== */
+
+const lightLeak = document.querySelector(".light-leak");
+
+window.addEventListener("scroll",()=>{
+
+    const offset = window.scrollY * 0.12;
+
+    lightLeak.style.transform = `translateY(${offset}px)`;
+
+});
+
+/* =====================================================
+FLOATING HEARTS
+===================================================== */
+
+function createHeart(){
+
+    const heart = document.createElement("span");
+
+    heart.innerHTML = "🤎";
+
+    heart.style.position = "fixed";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.bottom = "-30px";
+
+    heart.style.fontSize = (18 + Math.random()*18) + "px";
+
+    heart.style.pointerEvents = "none";
+
+    heart.style.zIndex = "999";
+
+    heart.style.transition = "all 5s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.style.bottom = "110vh";
+
+        heart.style.opacity = "0";
+
+        heart.style.transform =
+        `translateX(${Math.random()*120-60}px)
+         rotate(${Math.random()*360}deg)`;
+
+    },100);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },5200);
+
+}
+
+setInterval(createHeart,2200);
+
+/* =====================================================
+CAMERA CURSOR FLASH
+===================================================== */
+
+document.addEventListener("click",(e)=>{
+
+    const flashPoint = document.createElement("div");
+
+    flashPoint.style.position = "fixed";
+
+    flashPoint.style.left = e.clientX + "px";
+
+    flashPoint.style.top = e.clientY + "px";
+
+    flashPoint.style.width = "18px";
+
+    flashPoint.style.height = "18px";
+
+    flashPoint.style.borderRadius = "50%";
+
+    flashPoint.style.background = "#ffffff";
+
+    flashPoint.style.boxShadow = "0 0 35px #fff";
+
+    flashPoint.style.pointerEvents = "none";
+
+    flashPoint.style.zIndex = "9999";
+
+    flashPoint.style.opacity = "1";
+
+    flashPoint.style.transition = ".5s";
+
+    document.body.appendChild(flashPoint);
+
+    setTimeout(()=>{
+
+        flashPoint.style.transform = "scale(8)";
+
+        flashPoint.style.opacity = "0";
+
+    },20);
+
+    setTimeout(()=>{
+
+        flashPoint.remove();
+
+    },500);
+
+});
+
+/* =====================================================
+ENDING FADE
+===================================================== */
+
+const ending = document.getElementById("ending");
+
+const endingObserver = new IntersectionObserver((entries)=>{
 
     entries.forEach(entry=>{
 
         if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+            ending.style.backgroundPosition = "center";
+
+            ending.style.transition = "2s";
 
         }
 
     });
 
-},{
-
-    threshold:0.15
-
 });
 
-document.querySelectorAll("section").forEach(section=>{
-
-    section.classList.add("hidden");
-
-    observer.observe(section);
-
-});
-
-/* =====================================================
-FILM FRAME HOVER
-===================================================== */
-
-const frames = document.querySelectorAll(".film-frame");
-
-frames.forEach(frame=>{
-
-    frame.addEventListener("mouseenter",()=>{
-
-        frame.style.transition = ".35s";
-
-        frame.style.transform = "translateY(-12px) rotate(-2deg) scale(1.03)";
-
-    });
-
-    frame.addEventListener("mouseleave",()=>{
-
-        frame.style.transform = "";
-
-    });
-
-});
-
-/* =====================================================
-SCRAPBOOK EFFECT
-===================================================== */
-
-const scraps = document.querySelectorAll(".scrap-item");
-
-scraps.forEach(item=>{
-
-    item.addEventListener("mouseenter",()=>{
-
-        item.style.zIndex = "10";
-
-    });
-
-    item.addEventListener("mouseleave",()=>{
-
-        item.style.zIndex = "1";
-
-    });
-
-});
-
-/* =====================================================
-HERO PARALLAX
-===================================================== */
-
-const heroSection = document.getElementById("hero");
-
-window.addEventListener("scroll", () => {
-
-    const scroll = window.pageYOffset;
-
-    if (heroSection) {
-
-        heroSection.style.backgroundPositionY = `${scroll * 0.4}px`;
-
-    }
-
-});
-
-/* =====================================================
-VHS EFFECT
-===================================================== */
-
-const vhsScreen = document.querySelector(".vhs-screen");
-
-if (vhsScreen) {
-
-    setInterval(() => {
-
-        vhsScreen.style.filter = `
-            brightness(${0.95 + Math.random() * 0.12})
-            contrast(${0.95 + Math.random() * 0.15})
-            saturate(${0.85 + Math.random() * 0.2})
-        `;
-
-    }, 180);
-
-}
-
-/* =====================================================
-LIGHT LEAK
-===================================================== */
-
-const leak = document.querySelector(".light-leak");
-
-if (leak) {
-
-    setInterval(() => {
-
-        leak.style.opacity = (0.12 + Math.random() * 0.12).toFixed(2);
-
-    }, 3000);
-
-}
-
-/* =====================================================
-FILM STRIP AUTO SCROLL
-===================================================== */
-
-const filmContainer = document.querySelector(".film-container");
-
-if (filmContainer) {
-
-    let direction = 1;
-
-    setInterval(() => {
-
-        filmContainer.scrollLeft += direction;
-
-        if (
-
-            filmContainer.scrollLeft + filmContainer.clientWidth >=
-            filmContainer.scrollWidth - 5
-
-        ) {
-
-            direction = -1;
-
-        }
-
-        if (filmContainer.scrollLeft <= 0) {
-
-            direction = 1;
-
-        }
-
-    }, 25);
-
-}
-
-/* =====================================================
-ENDING PHOTO
-===================================================== */
-
-const endingPhoto = document.querySelector(".ending-photo");
-
-if (endingPhoto) {
-
-    endingPhoto.animate(
-
-        [
-
-            {
-
-                transform: "rotate(-3deg) scale(1)"
-
-            },
-
-            {
-
-                transform: "rotate(-1deg) scale(1.04)"
-
-            },
-
-            {
-
-                transform: "rotate(-3deg) scale(1)"
-
-            }
-
-        ],
-
-        {
-
-            duration: 5000,
-
-            iterations: Infinity
-
-        }
-
-    );
-
-}
-
-/* =====================================================
-FLOATING BUTTON
-===================================================== */
-
-if (backToTop) {
-
-    setInterval(() => {
-
-        backToTop.animate(
-
-            [
-
-                {
-
-                    transform: "translateY(0px)"
-
-                },
-
-                {
-
-                    transform: "translateY(-8px)"
-
-                },
-
-                {
-
-                    transform: "translateY(0px)"
-
-                }
-
-            ],
-
-            {
-
-                duration: 1800
-
-            }
-
-        );
-
-    }, 1800);
-
-}
-
-/* =====================================================
-MUSIC RESUME
-===================================================== */
-
-document.addEventListener("click", () => {
-
-    if (music && music.paused) {
-
-        music.play().catch(() => {});
-
-    }
-
-}, {
-
-    once: false
-
-});
-
-/* =====================================================
-FADE STYLE
-===================================================== */
-
-const fadeStyle = document.createElement("style");
-
-fadeStyle.innerHTML = `
-
-.hidden{
-
-opacity:0;
-
-transform:translateY(60px);
-
-transition:.8s ease;
-
-}
-
-.show{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-`;
-
-document.head.appendChild(fadeStyle);
-
-/* =====================================================
-CAMERA FLASH ON PHOTO
-===================================================== */
-
-document.querySelectorAll("img").forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        flash.style.opacity = "0.8";
-
-        setTimeout(() => {
-
-            flash.style.opacity = "0";
-
-        }, 120);
-
-    });
-
-});
-
-/* =====================================================
-TITLE CHANGE
-===================================================== */
-
-const titles = [
-
-    "Happy Girlfriend Day ❤️",
-
-    "Kodak Memories 📷",
-
-    "For Deandra 🤎",
-
-    "Every Picture Has A Story"
-
-];
-
-let titleIndex = 0;
-
-setInterval(() => {
-
-    titleIndex++;
-
-    if (titleIndex >= titles.length) {
-
-        titleIndex = 0;
-
-    }
-
-    document.title = titles[titleIndex];
-
-}, 3000);
+endingObserver.observe(ending);
 
 /* =====================================================
 CONSOLE MESSAGE
 ===================================================== */
 
-console.clear();
+console.log("%c📷 Kodak Memories Premium",
+"font-size:18px;color:#8A5A44;font-weight:bold;");
 
-console.log("%cKodak Memories", "font-size:28px;color:#8b5e3c;font-weight:bold;");
-
-console.log("%cMade with 🤎 by Akbar", "font-size:16px;color:#b8860b;");
-
-console.log("%cHappy National Girlfriend Day!", "font-size:14px;color:#444;");
-
-/* =====================================================
-THE END
-===================================================== */
+console.log("%cMade with 🤎 by Akbar",
+"font-size:14px;color:#C9A86A;");
